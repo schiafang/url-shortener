@@ -1,7 +1,7 @@
-<form action="/generate" method="POST">
+<form action="/generate" method="POST" onsubmit="return check()">
   <div class="form-group">
-    <input class="url-input form-control form-control-lg" type="url" placeholder="http://" name="name"
-      autocomplete="off">
+    <input class="url-input form-control form-control-lg" type="url" data-toggle="tooltip" title="input URL"
+      placeholder="http://" name="name" autocomplete="off">
   </div>
   <button type="submit" class="switch-btn btn"><i class="fas fa-sync-alt"></i></button>
 </form>

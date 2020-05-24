@@ -4,7 +4,7 @@ const upperLetter = lowerLetter.toUpperCase()
 const arr = (number + lowerLetter + upperLetter).split('')
 let randomValue = ''
 
-for (let i = 0; i < 6; i++) {
+for (let i = 0; i < 5; i++) {
   const randomIndex = Math.floor(Math.random() * arr.length)
   randomValue += arr[randomIndex]
 }

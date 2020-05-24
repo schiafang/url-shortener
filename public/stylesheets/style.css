@@ -4,11 +4,8 @@ body {
 }
 
 .main-container {
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
   text-align: center;
-  margin: 180px 0px 100px;
+  margin: 150px 0px 100px;
 }
 .title {
   font-style: italic;
