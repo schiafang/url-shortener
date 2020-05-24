@@ -1,1 +1,55 @@
 
+body {
+  background-color: rgb(50, 50, 50);
+}
+
+.main-container {
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  text-align: center;
+  margin: 180px 0px 100px;
+}
+.title {
+  font-style: italic;
+  font-family: 'Merriweather Sans', sans-serif;
+  color: rgb(255, 255, 255, 0.7);
+  font-size: 60px;
+}
+.fa-link {
+  color: rgb(232, 196, 19);
+  font-size: 180px;
+  margin: 50px 0px 50px 0px;
+}
+.form-group {
+  display: flex;
+  justify-content: center;
+}
+.url-input {
+  background-color: rgb(255, 255, 255, 0.7);
+  width: 460px;
+  border: none;
+  margin: 40px 0px 30px 0px ;
+}
+.fa-sync-alt {
+  color: rgb(13, 138, 147);
+  font-size: 45px;
+}
+.switch-success {
+  font-size: 30px;
+  color: rgb(98, 159, 100);
+}
+.shortener-link {
+  font-size: 24px;
+  color: rgb(87, 163, 210);
+  background-color: transparent;
+  border: none;
+  margin-top: 40px;
+}
+.shortener-link input {
+  width: 600px;
+}
+.fa-copy {
+  font-size: 28px;
+  color: rgb(205, 97, 85);
+}

@@ -1,6 +1,12 @@
 <div>
-  <h2>Success! Please use this link</h2>
-  <h3>
-    <a href="{{link}}">https://afternoon-refuge-18259.herokuapp.com/{{shortener}}</a>
+  <h2 class="switch-success">Success! Please use this link</h2>
+  <h3 class="shortener-link">
+    <div>
+      <input href="{{link}}" class="shortener-link" id="copyInput"
+        value="https://afternoon-refuge-18259.herokuapp.com/{{shortener}}" readonly>
+      <button type="button" class="btn" data-toggle="tooltip" data-placement="top" title="copy" onclick="copyInput()"><i
+          class="fas fa-copy"></i>
+      </button>
+    </div>
   </h3>
 </div>
