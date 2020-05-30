@@ -21,7 +21,7 @@ router.get('/:shortener', (req, res) => {
 
 router.post('/generate', (req, res) => {
   const link = req.body.name
-  let randomShortener = 'tgfd'
+  let randomShortener = randomUrl()
   UrlRecord.find({ shortener: randomShortener })
     .then(item => {
       function check (item) {
