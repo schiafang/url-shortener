@@ -22,14 +22,23 @@ router.get('/:shortener', (req, res) => {
 router.post('/generate', (req, res) => {
   const link = req.body.name
   let randomShortener = randomUrl()
-  UrlRecord.find({ shortener: randomShortener })
-    .then(item => {
-      function check (item) {
-        if (item.length !== 0) {
-          randomShortener = randomUrl()
-        }
+  // UrlRecord.find({ shortener: randomShortener })
+  //   .then(item => {
+  //     function check (item) {
+  //       if (item.length !== 0) {
+  //         randomShortener = randomUrl()
+  //       }
+  //     }
+  //     check(item)
+  //   })
+  return UrlRecord.find()
+    .then(items => {
+      const shortenerArr = []
+      items.forEach(item => shortenerArr.push(item.shortener))
+      console.log(shortenerArr)
+      while (shortenerArr.includes(randomShortener)) {
+        randomShortener = randomUrl()
       }
-      check(item)
     })
     .then(() => {
       return UrlRecord.create({ link, shortener: randomShortener })
