@@ -4,12 +4,7 @@ const UrlRecord = require('../../models/urlRecord')
 const randomUrl = require('../../public/javascripts/random')
 
 router.get('/', (req, res) => {
-  return UrlRecord.find()
-    .lean()
-    .then(item => {
-      res.render('index')
-    })
-    .catch(error => console.log('error'))
+  res.render('index')
 })
 
 router.get('/:shortener', (req, res) => {
@@ -17,22 +12,24 @@ router.get('/:shortener', (req, res) => {
   return UrlRecord.find({ shortener: shortener })
     .lean()
     .then(result => {
-      res.redirect(`${result[0].link}`)
+      // 若輸入網址不在資料庫中則導回首頁
+      if (result.length === 0) { res.redirect('/') }
+      else { res.redirect(`${result[0].link}`) }
     })
     .catch(error => console.log('error!'))
 })
 
 router.post('/generate', (req, res) => {
   const link = req.body.name
-  let randomShortener = randomUrl()
-  /**
-   * 1. 先找出資料庫有無重複的shortener(將會有兩個一樣的網址連上不同網站)，如果有則返回再執行一次 random function
-   * 2. 將新資料存入資料庫
-   * 3. 渲染頁面
-   */
+  let randomShortener = 'tgfd'
   UrlRecord.find({ shortener: randomShortener })
     .then(item => {
-      if (item.length !== 0) return randomShortener = randomUrl()
+      function check (item) {
+        if (item.length !== 0) {
+          randomShortener = randomUrl()
+        }
+      }
+      check(item)
     })
     .then(() => {
       return UrlRecord.create({ link, shortener: randomShortener })

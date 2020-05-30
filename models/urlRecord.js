@@ -8,7 +8,8 @@ const UrlRecordSchema = new Schema({
   },
   shortener: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   }
 })
 
